@@ -24,8 +24,9 @@ The steps are mostly laid out in the Jupyter/IPython Notebook. Briefly:
 * Inner join those two joined datasets to one another
 * Attempt to find a primary city/state based on how well the three datasets agree. If there's no agreement, fall-back to noncensus.
 * Based on the primary city/state, query TwoFishes to get a fourth set of lat/lon from a production geocoder.
-* Given our four sets of lat/lon, get the min/max Haversine distance between each pair * Rank the lat/lon is order of trustworthyness: TwoFishes, Noncensus, GeoNames, FreeZip
+* Given our four sets of lat/lon, get the min/max Haversine distance between each pair
+* Rank the lat/lon is order of trustworthyness: TwoFishes, Noncensus, GeoNames, FreeZip
 * If the min distance between TwoFishes and noncensus is < 1km, use TwoFishes. Otherwise, use the better-ranked of the min-distance pair
 * Two final datasets:
-    - distinct_cities, which has a row for each city/state (some states have cities of the same name). Lat/Lon are centroids of all the zips within that city
-    - distinct_zips, which has a row for each zip code
+    - distinct_cities.csv, which has a row for each city/state (some states have cities of the same name). Lat/Lon are centroids of all the zips within that city
+    - distinct_zips.csv, which has a row for each zip code
